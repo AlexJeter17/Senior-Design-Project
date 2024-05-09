@@ -1,0 +1,24 @@
+class AnalyticsEngine:
+    def __init__(self):
+        self.models = {}
+
+    def add_model(self, model_name, model):
+        self.models[model_name] = model
+
+    def process_data(self, data):
+        print("Processing data to generate insights.")
+        insights = {}
+        for model_name, model in self.models.items():
+            insights[model_name] = model.analyze(data)
+        return insights
+
+    def forecast(self, data, model_name):
+        if model_name in self.models:
+            print(f"Generating forecasts using {model_name} model.")
+            return self.models[model_name].forecast(data)
+        else:
+            print(f"Model {model_name} not found.")
+            return None
+
+
+# THIS CLASS IS A BASIC FORMAT CLASS. TRUE CLASS WILL BE CURATED THROUGH AFTER TRAINING AND MAINTENANCE HAVE BEEN FINISHED ON THE GPT-2 BOT.
